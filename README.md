@@ -1,4 +1,4 @@
-# HackerNewsTask
+# HackerNews Revamped Design
 
 New design of famous website hacker news (https://news.ycombinator.com/) and API used https://github.com/HackerNews/API.
 
