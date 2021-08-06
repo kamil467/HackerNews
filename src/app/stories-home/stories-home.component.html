@@ -1,0 +1,108 @@
+<header>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg  navbar-news fixed-top">
+      <div class="container-fluid">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-mdb-toggle="collapse"
+          data-mdb-target="#navbarExample01"
+          aria-controls="navbarExample01"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarExample01">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item active">
+              <a class="nav-link navbar-text"  aria-current="page" href="#">Hacker News</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link navbar-text"  href="#">Top Stories</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link navbar-text" href="#">Past</a>
+              </li>
+            <li class="nav-item">
+              <a class="nav-link navbar-text" href="#">Comments</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link navbar-text" href="#">Jobs</a>
+              </li>
+            <li class="nav-item">
+              <a class="nav-link navbar-text" href="#">About</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Navbar -->
+  
+    <!-- Jumbotron -->
+    <div class="p-5 text-center text-light" style="margin-top: 58px; background-color: mediumorchid;" >
+      <h1 class="mb-3">Hacker News</h1>
+      <h4 class="mb-3">Top Stories</h4>
+    
+    </div>
+    <!-- Jumbotron -->
+  </header>
+
+ 
+
+<div *ngIf="newsList | async as topStoryList; else loading" style="background-color: mediumorchid;">
+<div class="card" style="background-color: mediumorchid; margin-left: 100px;;">
+
+
+  <div class="row text-center row-cols-1 row-cols-md-3 g-4" >
+    <div class="col text-center"  *ngFor ="let story of topStoryList | paginate: { itemsPerPage: count, currentPage: p }; let i = index" >
+      <div class="card text-center" style="width: 21rem;">
+        <div class="card-body">
+          <h5 class="card-title">{{i+1}}.{{story.title}}</h5>
+          <p class="card-text">
+            {{story.by}}
+          </p>
+          <a [href]="story.url" target="_blank" class="btn text-light" style="background-color: mediumorchid;">Read more</a>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  <div class="text-center">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>
+</div>
+</div>
+
+<ng-template #loading>
+    <div class="text-center">
+
+    
+    <div class="spinner-grow text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <div class="spinner-grow text-secondary" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <div class="spinner-grow text-success" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <div class="spinner-grow text-danger" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <div class="spinner-grow text-warning" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <div class="spinner-grow text-info" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <div class="spinner-grow text-light" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <div class="spinner-grow text-dark" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      </div>
+</ng-template>
+
+

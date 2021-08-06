@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  newsAPIList:"https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty",
+  newsAPIById: "https://hacker-news.firebaseio.com/v0/item/"
 };
 
 /*
